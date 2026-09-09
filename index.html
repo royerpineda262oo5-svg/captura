@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Mi Gasera — Captura</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#00808D">
+  <link rel="icon" type="image/png" href="icono-192.png">
+  <!-- iPhone / iPad -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Captura">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; background: #00A5B5; font-family: system-ui, sans-serif; }
+    #cargando {
+      position: fixed; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 16px;
+      background: #00A5B5; z-index: 5;
+    }
+    #cargando img { width: 88px; height: 88px; border-radius: 20px; }
+    .spinner {
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 4px solid rgba(255,255,255,0.35); border-top-color: #0F2A47;
+      animation: girar 0.9s linear infinite;
+    }
+    @keyframes girar { to { transform: rotate(360deg); } }
+    #cargando p { color: #FFFFFF; font-size: 14px; font-weight: 600; letter-spacing: 0.3px; }
+    iframe { width: 100%; height: 100%; border: none; display: block; background: #F4F6F8; }
+  </style>
+</head>
+<body>
+
+  <div id="cargando">
+    <img src="icono-192.png" alt="Mi Gasera Captura">
+    <div class="spinner"></div>
+    <p>Cargando captura...</p>
+  </div>
+
+  <!-- ⚙️ AQUÍ VA LA URL /exec DEL FORMULARIO DE CAPTURA (la del archivo OPERATIVO, no la del dashboard) -->
+  <iframe id="app"
+    src="PEGA_AQUI_LA_URL_DEL_FORMULARIO"
+    allow="fullscreen"
+    onload="document.getElementById('cargando').style.display='none'">
+  </iframe>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>

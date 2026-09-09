@@ -1,0 +1,14 @@
+{
+  "name": "Mi Gasera — Captura",
+  "short_name": "Captura",
+  "description": "Captura de reportes diarios: cortes de estación, pipa y volumen.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#00A5B5",
+  "theme_color": "#00808D",
+  "icons": [
+    { "src": "icono-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icono-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
